@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "async-to-gen": "^1.1.4",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-preset-stage-3": "^6.17.0"
+  },
+  "scripts": {
+    "test": "babel-node index.js"
+  }
+}
