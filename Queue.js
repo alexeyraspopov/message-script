@@ -27,6 +27,10 @@ class QueueIterator {
 
     return { value, done };
   }
+
+  [Symbol.iterator]() {
+    return this;
+  }
 }
 
 class AsyncQueueIterator extends QueueIterator {

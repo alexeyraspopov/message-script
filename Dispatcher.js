@@ -37,6 +37,10 @@ class DispatcherIterator {
       this.dispatcher.tasks.enqueue(task);
     });
   }
+
+  [Symbol.iterator]() {
+    return this;
+  }
 }
 
 exports.Dispatcher = Dispatcher;
