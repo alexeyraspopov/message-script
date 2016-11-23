@@ -3,7 +3,7 @@ const { Queue } = require('./Queue');
 class Dispatcher {
   constructor() {
     this.mailbox = new Queue();
-    this.queue = new Queue();
+    this.tasks = new Queue();
     this.isDispatching = false;
   }
 
@@ -14,7 +14,7 @@ class Dispatcher {
       this.isDispatching = true;
 
       for await (const message of this.mailbox) {
-        for (const task of this.queue) task(message);
+        for (const task of this.tasks) task(message);
       }
 
       this.isDispatching = false;
@@ -34,7 +34,7 @@ class DispatcherIterator {
   next() {
     return new Promise(resolve => {
       const task = (value) => resolve({ value, done: false });
-      this.dispatcher.queue.enqueue(task);
+      this.dispatcher.tasks.enqueue(task);
     });
   }
 }
