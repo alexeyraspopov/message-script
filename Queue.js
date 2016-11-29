@@ -35,8 +35,7 @@ class QueueIterator {
 
 class AsyncQueueIterator extends QueueIterator {
   async next() {
-    // FIXME: https://github.com/babel/babel/issues/3930
-    return QueueIterator.prototype.next.call(this);
+    return super.next();
   }
 }
 
