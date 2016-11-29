@@ -21,6 +21,10 @@ class Dispatcher {
     }
   }
 
+  [Symbol.iterator]() {
+    return new DispatcherIterator(this);
+  }
+
   [Symbol.asyncIterator]() {
     return new DispatcherIterator(this);
   }
