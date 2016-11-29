@@ -21,7 +21,7 @@ class ActorA extends Actor {
 
 class ActorB extends Actor {
   receive(message) {
-    if (message ** 2 > 4) return this.terminate();
+    if (message ** 2 > 4) return this.disable();
     console.log('actorB', message ** 2);
   }
 }
@@ -48,8 +48,12 @@ class SumStore extends ReduceStore {
   }
 }
 
-const store = new SumStore(dispatcher);
-new ActorA(dispatcher);
-new ActorB(dispatcher);
-new ActorC(dispatcher, store);
-schedule();
+function main() {
+  const store = new SumStore(dispatcher);
+  new ActorA(dispatcher);
+  new ActorB(dispatcher);
+  new ActorC(dispatcher, store);
+  schedule();
+}
+
+main();
