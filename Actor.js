@@ -1,20 +1,22 @@
 class Actor {
   constructor(dispatcher) {
     this.dispatcher = dispatcher;
-    this.isTerminated = false;
-    this.listen();
+    this.isDisabled = false;
+    this.enable();
   }
 
-  async listen() {
+  async enable() {
+    this.isDisabled = false;
+
     for await (const message of this.dispatcher) {
-      if (this.isTerminated) break;
+      if (this.isDisabled) break;
       this.receive(message);
     }
   }
 
-  terminate() {
+  disable() {
     // should this mechanism be covered by different instance?
-    this.isTerminated = true;
+    this.isDisabled = true;
   }
 
   receive() {
