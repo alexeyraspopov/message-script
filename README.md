@@ -14,7 +14,7 @@ of tasks.
 ```javascript
 class Actor {
   constructor(dispatcher) {
-    for (const message of dispatcher) {
+    for await (const message of dispatcher) {
       this.receive(message); // should it be queued, like mailbox or something?
     }
   }
