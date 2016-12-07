@@ -5,7 +5,7 @@ class ExecutionContext {
     this.isExecuting = false;
   }
 
-  run(routine) {
+  execute(routine) {
     return new Promise(async (resolve, reject) => {
       this.queue.push({ resolve, reject, routine });
 
