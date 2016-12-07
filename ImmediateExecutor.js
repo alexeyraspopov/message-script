@@ -1,6 +1,6 @@
 class ImmediateExecutor {
-  execute(routine) {
-    return new Promise(resolve => resolve(routine()));
+  async execute(routine) {
+    return routine();
   }
 }
 
