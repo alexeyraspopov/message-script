@@ -6,26 +6,29 @@ class ExecutionContext {
   }
 
   run(routine) {
-    if (!this.isExecuting) {
-      this.isExecuting = true;
-      Promise.resolve()
-        .then(() => this.dequeue())
-        .then(() => {
-          this.isExecuting = false;
-        });
-    }
+    return new Promise(async (resolve, reject) => {
+      this.queue.push({ resolve, reject, routine });
 
-    return new Promise(resolve => {
-      this.queue.push({ resolve, routine });
+      if (!this.isExecuting) {
+        this.isExecuting = true;
+        await Promise.resolve();
+        await this.dequeue();
+        this.isExecuting = false;
+      }
     });
   }
 
-  dequeue() {
-    const task = this.queue.shift();
+  async dequeue() {
+    while (this.queue.length > 0) {
+      const task = this.queue.shift();
 
-    return this.executor.execute(task.routine)
-      .then(task.resolve)
-      .then(() => this.queue.length && this.dequeue());
+      try {
+        const result = await this.executor.execute(task.routine);
+        task.resolve(result);
+      } catch (error) {
+        task.reject(error);
+      }
+    }
   }
 }
 
