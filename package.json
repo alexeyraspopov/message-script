@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "async-to-gen": "1.2.0"
+    "async-to-gen": "1.2.0",
+    "lerna": "2.0.0-beta.30"
   },
   "scripts": {
     "test": "async-node index.js"
