@@ -1,4 +1,4 @@
-class ExecutionContext {
+export default class ExecutionContext {
   constructor(executor) {
     this.executor = executor;
     this.current = Promise.resolve();
@@ -13,5 +13,3 @@ class ExecutionContext {
     }
   }
 }
-
-exports.ExecutionContext = ExecutionContext;
