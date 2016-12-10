@@ -1,3 +1,5 @@
+# Message Script
+
 Let's assume a dispatcher with just `dispatch()` method and async iterator
 interface.
 
