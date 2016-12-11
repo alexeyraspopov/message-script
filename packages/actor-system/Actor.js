@@ -1,4 +1,4 @@
-class Actor {
+export default class Actor {
   constructor(dispatcher) {
     this.dispatcher = dispatcher;
     this.isDisabled = false;
@@ -23,5 +23,3 @@ class Actor {
     throw new Error('Not implemented');
   }
 }
-
-exports.Actor = Actor;
