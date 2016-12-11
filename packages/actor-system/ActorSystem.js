@@ -1,4 +1,4 @@
-const { MessageDispatcher } = require('message-dispatcher');
+import { MessageDispatcher } from 'message-dispatcher';
 
 export default class ActorSystem {
   constructor() {

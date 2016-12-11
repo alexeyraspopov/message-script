@@ -1,5 +1,4 @@
-const { ExecutionContext } = require('./ExecutionContext');
-const { ImmediateExecutor } = require('./ImmediateExecutor');
+import { ExecutionContext, ImmediateExecutor } from 'execution-context';
 
 export default class MessageDispatcher {
   constructor() {

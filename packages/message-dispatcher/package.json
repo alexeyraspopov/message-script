@@ -1,3 +1,6 @@
 {
-  "name": "message-dispatcher"
+  "name": "message-dispatcher",
+  "dependencies": {
+    "execution-context": "*"
+  }
 }

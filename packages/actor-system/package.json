@@ -1,3 +1,6 @@
 {
-  "name": "actor-system"
+  "name": "actor-system",
+  "dependencies": {
+    "message-dispatcher": "*"
+  }
 }
