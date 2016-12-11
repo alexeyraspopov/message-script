@@ -1,5 +1,7 @@
 {
   "name": "actor-system",
+  "version": "0.0.0",
+  "private": true,
   "dependencies": {
     "message-dispatcher": "*"
   }
