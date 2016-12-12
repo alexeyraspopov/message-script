@@ -12,17 +12,16 @@ export default class ExecutionContext {
       this.queue.push({ routine, resolve, reject });
 
       if (!this.manual && this.queue.length === 1) {
-        this.enqueue();
+        this.flush();
       }
     });
   }
 
-  enqueue() {
-    return this.current.then(() => {
-      const batch = this.queue.splice(0, this.concurrent);
-      this.current = this.executor.execute(batchTasks(batch));
-      return this.queue.length === 0 || this.enqueue();
-    });
+  async flush() {
+    await this.current;
+    const batch = this.queue.splice(0, this.concurrent);
+    this.current = this.executor.execute(batchTasks(batch));
+    return this.queue.length === 0 || this.flush();
   }
 }
 
