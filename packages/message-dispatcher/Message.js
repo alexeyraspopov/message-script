@@ -1,7 +1,4 @@
 export default class Message {
-  // deserialize message
-  static of() { }
-
   constructor(payload) {
     this.payload = payload;
   }
