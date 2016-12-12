@@ -80,7 +80,7 @@ describe('ExecutionContext', () => {
     await Promise.resolve(); // wait for the next tick
     expect(routine).not.toHaveBeenCalled();
 
-    const result = await context.enqueue();
+    const result = await context.flush();
     expect(result).toBe(true);
     expect(routine).toHaveBeenCalled();
   });
