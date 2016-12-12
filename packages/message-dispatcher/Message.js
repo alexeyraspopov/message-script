@@ -2,12 +2,18 @@ export default class Message {
   // deserialize message
   static of() { }
 
-  constructor() { }
+  constructor(payload) {
+    this.payload = payload;
+  }
 
   getType() {
     return this.constructor;
   }
 
-  // include type
-  toJSON() { }
+  toJSON() {
+    return {
+      type: this.constructor.name,
+      payload: this.payload
+    };
+  }
 }
