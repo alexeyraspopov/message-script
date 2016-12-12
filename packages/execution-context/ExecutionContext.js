@@ -19,9 +19,14 @@ export default class ExecutionContext {
 
   async flush() {
     await this.current;
-    const batch = this.queue.splice(0, this.concurrent);
-    this.current = this.executor.execute(batchTasks(batch));
-    return this.queue.length === 0 || this.flush();
+    const tasks = this.queue.splice(0, this.concurrent);
+
+    if (tasks.length > 0) {
+      this.current = this.executor.execute(batchTasks(tasks));
+      return this.queue.length === 0 || this.flush();
+    }
+
+    return false;
   }
 }
 
