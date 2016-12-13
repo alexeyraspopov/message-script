@@ -1,6 +1,6 @@
 export default class Message {
-  constructor(payload) {
-    this.payload = payload;
+  constructor(data) {
+    this.data = data;
   }
 
   getType() {
@@ -10,7 +10,7 @@ export default class Message {
   toJSON() {
     return {
       type: this.constructor.name,
-      payload: this.payload
+      data: this.data
     };
   }
 }
