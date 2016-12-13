@@ -1,6 +1,6 @@
 export default class DelayExecutor {
   constructor(delay) {
-    this.delay = delay;
+    this.delay = parseInt(delay) || 0;
   }
 
   execute(routine) {
