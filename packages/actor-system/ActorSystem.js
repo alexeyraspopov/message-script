@@ -8,7 +8,11 @@ export default class ActorSystem {
 
   getStats() {
     const entries = this.actors.entries();
-    const serialize = ([name, actor]) => ({ name, actor });
+    const serialize = ([name, actor]) => ({
+      name,
+      type: actor.constructor.name,
+      actor
+    });
 
     return Array.from(entries, serialize);
   }
