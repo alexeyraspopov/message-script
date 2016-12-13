@@ -1,5 +1,5 @@
 export default class ImmediateExecutor {
-  async execute(routine) {
-    return routine();
+  execute(routine) {
+    return new Promise(resolve => resolve(routine()));
   }
 }
