@@ -6,4 +6,8 @@ export default class Mailbox {
   enqueue(envelope) {
     this.inbox.push(envelope);
   }
+
+  dequeue() {
+    return this.inbox.shift();
+  }
 }
