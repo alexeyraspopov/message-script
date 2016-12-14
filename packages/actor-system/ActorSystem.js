@@ -1,4 +1,5 @@
 import { MessageDispatcher } from 'message-dispatcher';
+import ActorRef from './ActorRef';
 
 export default class ActorSystem {
   constructor() {
@@ -23,8 +24,9 @@ export default class ActorSystem {
     }
 
     const actor = new ActorConstructor();
+    const ref = new ActorRef(actor);
 
-    this.actors.set(name, actor);
+    this.actors.set(name, ref);
 
     return actor;
   }
