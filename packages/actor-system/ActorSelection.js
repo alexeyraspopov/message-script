@@ -4,10 +4,17 @@ export default class ActorSelection {
     this.selector = selector;
   }
 
-  [Symbol.iterator]() {
-    const actors = Array.from(this.system.actors.entries());
-    const selection = actors.filter(([key]) => key.indexOf(this.selector) > -1);
+  *[Symbol.iterator]() {
+    for (const [name, actor] of this.system.actors.entries()) {
+      switch (typeof this.selector) {
+      case 'string':
+        if (name.indexOf(this.selector) > -1) yield [name, actor];
+        break;
 
-    return selection[Symbol.iterator]();
+      case 'function':
+        if (actor.source.constructor === this.selector) yield [name, actor];
+        break;
+      }
+    }
   }
 }
