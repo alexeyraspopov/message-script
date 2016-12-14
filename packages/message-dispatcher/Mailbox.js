@@ -1,3 +1,9 @@
 export default class Mailbox {
-  constructor() { }
+  constructor() {
+    this.inbox = [];
+  }
+
+  enqueue(envelope) {
+    this.inbox.push(envelope);
+  }
 }
