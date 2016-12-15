@@ -3,7 +3,7 @@ export default class Message {
     this.data = data;
   }
 
-  getType() {
+  getSubject() {
     return this.constructor;
   }
 
