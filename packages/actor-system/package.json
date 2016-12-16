@@ -2,7 +2,6 @@
   "name": "actor-system",
   "version": "2.0.0",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "message-dispatcher": "*"
   }
