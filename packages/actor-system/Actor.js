@@ -1,6 +1,7 @@
 export default class Actor {
-  constructor(dispatcher) {
-    this.dispatcher = dispatcher;
+  constructor(system) {
+    this.system = system;
+    this.dispatcher = system.dispatcher;
   }
 
   receive() {
