@@ -3,8 +3,8 @@ export default class Mailbox {
     this.inbox = [];
   }
 
-  enqueue(envelope) {
-    this.inbox.push(envelope);
+  enqueue(receiver, envelope) {
+    this.inbox.push({ receiver, envelope });
   }
 
   dequeue() {
