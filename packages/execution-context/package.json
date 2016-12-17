@@ -1,5 +1,6 @@
 {
   "name": "execution-context",
   "version": "0.1.0",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "alexeyraspopov/message-script"
 }
