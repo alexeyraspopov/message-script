@@ -45,6 +45,7 @@ describe('ExecutionContext', () => {
     context.execute(routineB);
 
     await Promise.resolve(); // wait for the next tick
+    expect(routineA).toHaveBeenCalled();
     await Promise.resolve(); // wait for the next tick, thanks catch
     expect(failure.message).toEqual('Boooom');
 
