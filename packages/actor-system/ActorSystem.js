@@ -23,7 +23,7 @@ export default class ActorSystem {
       return this.actors.get(name);
     }
 
-    const actor = new ActorConstructor();
+    const actor = new ActorConstructor(this);
     const ref = new ActorRef(actor);
 
     this.actors.set(name, ref);
