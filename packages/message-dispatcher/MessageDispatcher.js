@@ -1,9 +1,13 @@
 import { ExecutionContext, ImmediateExecutor } from 'execution-context';
 
 export default class MessageDispatcher {
-  constructor() {
-    const executor = new ImmediateExecutor();
-    const context = new ExecutionContext(executor);
+  constructor(context) {
+    if (!context) {
+      const executor = new ImmediateExecutor();
+      context = new ExecutionContext(executor);
+    }
+
+    this.context = context;
   }
 
   dispatch() { }
