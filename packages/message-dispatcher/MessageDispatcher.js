@@ -11,9 +11,9 @@ export default class MessageDispatcher {
     this.context = context;
   }
 
-  dispatch(message) {
+  dispatch(envelope) {
     for (const mailbox of this.mailboxes) {
-      mailbox.enqueue(message);
+      mailbox.enqueue(envelope);
     }
   }
 }
