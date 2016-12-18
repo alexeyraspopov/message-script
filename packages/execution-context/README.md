@@ -12,3 +12,18 @@ const context = new ExecutionContext(executor);
 
 context.execute(() => /* some routine */);
 ```
+
+## Executors
+
+This package includes a set of executors which uses different APIs to schedule routines execution.
+
+```javascript
+import {
+  AnimationFrameExecutor,
+  DebounceExecutor,
+  DelayExecutor,
+  IdleCallbackExecutor,
+  ImmediateExecutor,
+  NextTickExecutor
+} from 'execution-context';
+```
