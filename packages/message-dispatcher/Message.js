@@ -1,6 +1,6 @@
 export default class Message {
   constructor(data) {
-    this.data = data;
+    this.body = data;
     this.subject = this.constructor.name;
   }
 }
