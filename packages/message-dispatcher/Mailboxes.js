@@ -6,4 +6,8 @@ export default class Mailboxes {
   register(mailbox) {
     this.mailboxes.push(mailbox);
   }
+
+  [Symbol.iterator]() {
+    return this.mailboxes[Symbol.iterator]();
+  }
 }
