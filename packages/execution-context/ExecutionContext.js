@@ -1,3 +1,11 @@
+/**
+ * Executes arbitrary code asynchronously and concurrently.
+ * @example
+ *     const executor = new ImmediateExecutor()
+ *     const context = new ExecutionContext(executor);
+ *     const result = context.execute(() => 'Hello, World!');
+ *     result.then(message => console.log(message));
+ */
 export default class ExecutionContext {
   /**
    * @param {Executor} executor — an instance that handles code running
