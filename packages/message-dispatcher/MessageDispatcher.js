@@ -1,14 +1,6 @@
-import { ExecutionContext, ImmediateExecutor } from 'execution-context';
-
 export default class MessageDispatcher {
-  constructor(mailboxes, context) {
-    if (!context) {
-      const executor = new ImmediateExecutor();
-      context = new ExecutionContext(executor);
-    }
-
+  constructor(mailboxes) {
     this.mailboxes = mailboxes;
-    this.context = context;
   }
 
   dispatch(envelope) {
