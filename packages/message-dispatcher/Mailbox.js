@@ -5,8 +5,8 @@ export default class Mailbox {
   }
 
   enqueue(envelope) {
-    this.context.execute(() => {
-      this.resolvers.forEach(resolve => resolve(envelope))
+    this.resolvers.forEach(resolve => {
+      this.context.execute(() => resolve(envelope));
     });
   }
 
