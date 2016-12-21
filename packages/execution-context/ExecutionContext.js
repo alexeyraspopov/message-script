@@ -53,12 +53,12 @@ export default class ExecutionContext {
 
 function batchTasks(tasks) {
   return function batch() {
-    try {
-      for (var task of tasks) {
+    for (var task of tasks) {
+      try {
         task.resolve(task.routine());
+      } catch (error) {
+        task.reject(error);
       }
-    } catch (error) {
-      task.reject(error);
     }
   };
 }
