@@ -1,15 +1,13 @@
 export default class Mailbox {
-  constructor() {
-    this.inbox = [];
+  constructor(context) {
+    this.context = context;
     this.resolvers = new Set();
   }
 
   enqueue(envelope) {
-    this.inbox.push({ envelope });
-  }
-
-  dequeue() {
-    return this.inbox.shift();
+    this.context.execute(() => {
+      this.resolvers.forEach(resolve => resolve(envelope))
+    });
   }
 
   register(routine) {
