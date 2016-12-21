@@ -9,4 +9,8 @@ export default class Actor {
   receive() {
     throw new Error('Not implemented');
   }
+
+  dispose() {
+    this.subscription.dispose();
+  }
 }
