@@ -1,7 +1,9 @@
 export default class Actor {
-  constructor(system) {
+  constructor(system, mailbox) {
     this.system = system;
-    this.dispatcher = system.dispatcher;
+    this.subscription = mailbox.register(({ message, sender }) => {
+      this.receive(message, sender);
+    });
   }
 
   receive() {
