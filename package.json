@@ -1,5 +1,6 @@
 {
   "name": "message-script",
+  "description": "A set of tools for creating message-driven systems in JavaScript",
   "author": "Alexey Raspopov",
   "license": "MIT",
   "devDependencies": {
