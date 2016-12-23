@@ -5,6 +5,9 @@
   "jsnext:main": "index.js",
   "license": "MIT",
   "repository": "alexeyraspopov/message-script",
+  "devDependencies": {
+    "rollup": "*"
+  },
   "scripts": {
     "prepublish": "rollup --format cjs index.js > execution-context.js"
   }
