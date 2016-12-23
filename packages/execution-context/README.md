@@ -2,6 +2,12 @@
 
 A generic implementation of concurrent and sequential code execution.
 
+## Install
+
+```
+npm install execution-context
+```
+
 ## Usage
 
 ```javascript
