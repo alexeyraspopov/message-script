@@ -1,4 +1,6 @@
-export ActorSystem from './ActorSystem';
-export ActorSelection from './ActorSelection';
-export ActorRef from './ActorRef';
-export Actor from './Actor';
+import ActorSystem from './ActorSystem';
+import ActorSelection from './ActorSelection';
+import ActorRef from './ActorRef';
+import Actor from './Actor';
+
+export { ActorSystem, ActorSelection, ActorRef, Actor };

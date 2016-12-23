@@ -1,5 +1,7 @@
-export MessageDispatcher from './MessageDispatcher';
-export Message from './Message';
-export Mailbox from './Mailbox';
-export Envelope from './Envelope';
-export Mailboxes from './Mailboxes';
+import MessageDispatcher from './MessageDispatcher';
+import Message from './Message';
+import Mailbox from './Mailbox';
+import Envelope from './Envelope';
+import Mailboxes from './Mailboxes';
+
+export { MessageDispatcher, Message, Mailbox, Envelope, Mailboxes };
