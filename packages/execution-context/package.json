@@ -1,9 +1,11 @@
 {
   "name": "execution-context",
-  "version": "0.1.0",
+  "description": "A generic implementation of concurrent and sequential code execution",
+  "version": "1.0.0",
   "main": "execution-context.js",
   "jsnext:main": "index.js",
   "license": "MIT",
+  "author": "Alexey Raspopov",
   "repository": "alexeyraspopov/message-script",
   "devDependencies": {
     "rollup": "*"

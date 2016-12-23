@@ -1,6 +1,6 @@
 # Message Script / Execution Context
 
-A primitive implementation of concurrent and sequential code execution.
+A generic implementation of concurrent and sequential code execution.
 
 ## Usage
 
