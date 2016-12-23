@@ -1,6 +1,11 @@
 {
   "name": "execution-context",
   "version": "0.1.0",
+  "main": "execution-context.js",
+  "jsnext:main": "index.js",
   "license": "MIT",
-  "repository": "alexeyraspopov/message-script"
+  "repository": "alexeyraspopov/message-script",
+  "scripts": {
+    "prepublish": "rollup --format cjs index.js > execution-context.js"
+  }
 }
