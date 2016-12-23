@@ -26,7 +26,6 @@ This package includes a set of executors which uses different APIs to schedule r
 ```javascript
 import {
   AnimationFrameExecutor,
-  DebounceExecutor,
   DelayExecutor,
   IdleCallbackExecutor,
   ImmediateExecutor,
