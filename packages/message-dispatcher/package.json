@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "repository": "alexeyraspopov/message-script",
+  "private": true,
   "dependencies": {
     "execution-context": "*"
   }
