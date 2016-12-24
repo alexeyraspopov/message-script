@@ -1,5 +1,5 @@
 import { ActorSystem, Actor } from 'actor-system';
-import { Message } from 'message-dispatcher';
+import { MessageDispatcher, Message } from 'message-dispatcher';
 
 class Ping extends Message { }
 
@@ -10,7 +10,9 @@ class Player extends Actor {
   }
 }
 
-const system = new ActorSystem();
+const dispatcher = new MessageDispatcher();
+const system = new ActorSystem(dispatcher);
+
 const firstPlayer = system.actorOf(Player, 'first');
 const secondPlayer = system.actorOf(Player, 'second');
 
