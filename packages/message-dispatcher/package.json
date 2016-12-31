@@ -1,7 +1,7 @@
 {
   "name": "message-dispatcher",
   "description": "A dispatcher and a mailbox implementation for controlled and strictly ordered message distribution",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "message-dispatcher.js",
   "jsnext:main": "index.js",
   "license": "MIT",
