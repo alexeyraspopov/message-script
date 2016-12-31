@@ -2,16 +2,31 @@
 
 A dispatcher and a mailbox implementation for controlled and strictly ordered message distribution.
 
+## Install
+
+```
+npm install message-dispatcher
+```
+
 ## Usage
 
 ```javascript
-import { MessageDispatcher, Mailboxes, Mailbox, Message } from 'message-dispatcher';
+import { MessageDispatcher, Mailbox, Message } from 'message-dispatcher';
 
-const mailboxes = new Mailboxes();
-const dispatcher = new MessageDispatcher(mailboxes);
+const dispatcher = new MessageDispatcher();
+const mailbox = dispatcher.mailboxOf(Mailbox);
 
-const mailbox = new Mailbox();
-
-mailboxes.register(mailbox);
+mailbox.register(message => /* some routine */);
 dispatcher.dispatch(new Message());
+```
+
+## What's inside
+
+```javascript
+import {
+  MessageDispatcher,
+  Mailbox,
+  Message,
+  Envelope
+} from 'message-dispatcher';
 ```
