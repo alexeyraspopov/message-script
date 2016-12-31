@@ -1,5 +1,5 @@
 class MessageDispatcher {
-  constructor(context) {
+  constructor() {
     this.mailboxes = new Map();
   }
 
