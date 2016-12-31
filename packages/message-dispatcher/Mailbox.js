@@ -7,24 +7,24 @@ export default class Mailbox {
   }
 
   enqueue(envelope) {
-    this.resolvers.forEach(resolve => {
-      this.context.execute(() => resolve(envelope));
-    });
+    for (const receiver of this.receivers) {
+      this.context.execute(receiver.bind(null, envelope));
+    }
   }
 
-  register(routine) {
-    this.resolvers.add(routine);
-    return new Subscription(this.resolvers, routine);
+  register(receiver) {
+    this.receivers.add(receiver);
+    return new MailboxSubscription(this.receivers, receiver);
   }
 }
 
-class Subscription {
-  constructor(resolvers, routine) {
-    this.resolvers = resolvers;
-    this.routine = routine;
+class MailboxSubscription {
+  constructor(receivers, receiver) {
+    this.receivers = receivers;
+    this.receiver = this.receiver;
   }
 
   dispose() {
-    this.resolvers.delete(this.routine);
+    this.receivers.delete(this.receiver);
   }
 }
