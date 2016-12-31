@@ -1,7 +1,9 @@
 {
   "name": "message-dispatcher",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "license": "MIT",
   "repository": "alexeyraspopov/message-script",
-  "private": true
+  "dependencies": {
+    "execution-context": "1.x"
+  }
 }
