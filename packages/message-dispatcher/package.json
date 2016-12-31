@@ -1,9 +1,19 @@
 {
   "name": "message-dispatcher",
+  "description": "A dispatcher and a mailbox implementation for controlled and strictly ordered message distribution",
   "version": "0.0.0",
+  "main": "message-dispatcher.js",
+  "jsnext:main": "index.js",
   "license": "MIT",
+  "author": "Alexey Raspopov",
   "repository": "alexeyraspopov/message-script",
   "dependencies": {
     "execution-context": "1.x"
+  },
+  "devDependencies": {
+    "rollup": "*"
+  },
+  "scripts": {
+    "prepublish": "rollup --format cjs --external execution-context index.js > message-dispatcher.js"
   }
 }
