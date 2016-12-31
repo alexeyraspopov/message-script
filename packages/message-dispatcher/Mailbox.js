@@ -1,7 +1,9 @@
+import { ExecutionContext, ImmediateExecutor } from 'execution-context';
+
 export default class Mailbox {
   constructor(context) {
-    this.context = context;
-    this.resolvers = new Set();
+    this.context = context || new ExecutionContext(new ImmediateExecutor());
+    this.receivers = new Set();
   }
 
   enqueue(envelope) {
