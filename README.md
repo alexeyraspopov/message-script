@@ -1,6 +1,6 @@
 # Message Script
 
-A set of tools for creating message-driven systems in JavaScript.
+A set of tools for creating [reactive message-driven systems](http://www.reactivemanifesto.org/) in JavaScript.
 
 ## Packages
 
