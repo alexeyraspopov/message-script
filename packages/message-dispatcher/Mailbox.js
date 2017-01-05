@@ -1,3 +1,4 @@
+import Subscription from './Subscription';
 import { ExecutionContext, ImmediateExecutor } from 'execution-context';
 
 export default class Mailbox {
@@ -14,17 +15,6 @@ export default class Mailbox {
 
   register(receiver) {
     this.receivers.add(receiver);
-    return new MailboxSubscription(this.receivers, receiver);
-  }
-}
-
-class MailboxSubscription {
-  constructor(receivers, receiver) {
-    this.receivers = receivers;
-    this.receiver = this.receiver;
-  }
-
-  dispose() {
-    this.receivers.delete(this.receiver);
+    return new Subscription(this.receivers, receiver);
   }
 }
