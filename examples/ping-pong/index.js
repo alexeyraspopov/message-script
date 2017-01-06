@@ -13,7 +13,7 @@ class Player extends Actor {
 const dispatcher = new MessageDispatcher();
 const system = new ActorSystem(dispatcher);
 
-const firstPlayer = system.actorOf(Player, 'first');
-const secondPlayer = system.actorOf(Player, 'second');
+const firstPlayer = system.spawn(Player, 'first');
+const secondPlayer = system.spawn(Player, 'second');
 
 firstPlayer.tell(new Ping({ count: 0 }), secondPlayer);

@@ -30,12 +30,12 @@ class JobQueueController extends Actor {
   receive(message) {
     switch (message.subject) {
     case AppInitialized.name:
-      this.system.actorOf(JobQueueStore, 'jqstore');
+      this.system.spawn(JobQueueStore, 'jqstore');
     }
   }
 }
 
-system.actorOf(Logger, 'applicationLogger');
-system.actorOf(JobQueueController, 'jqctl');
+system.spawn(Logger, 'applicationLogger');
+system.spawn(JobQueueController, 'jqctl');
 
 dispatcher.dispatch(new AppInitialized());

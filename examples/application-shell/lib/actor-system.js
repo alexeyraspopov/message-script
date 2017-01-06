@@ -5,7 +5,7 @@ class ActorSystem {
   }
 
   // TODO: actor system should know less about mailboxes
-  actorOf(Constructor, name, mailboxType = Mailbox) {
+  spawn(Constructor, name, mailboxType = Mailbox) {
     if (this.actors.has(name)) {
       return this.actors.get(name);
     }
