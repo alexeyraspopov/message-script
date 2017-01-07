@@ -8,6 +8,8 @@ export default class UniformEnvironment {
   }
 
   post(message) {
-
+    for (const child of children) {
+      child.send(message);
+    }
   }
 }
