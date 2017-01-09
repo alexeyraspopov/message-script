@@ -9,6 +9,7 @@ export default class UniformEnvironment {
     const address = `ID${this.id++}`;
 
     this.processes.set(address, routine);
+    setTimeout(routine, 0, this);
 
     return address;
   }
