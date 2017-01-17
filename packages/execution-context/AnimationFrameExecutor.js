@@ -25,3 +25,14 @@ export default class AnimationFrameExecutor {
     });
   }
 }
+
+class Deadline {
+  constructor(max) {
+    this.max = max;
+    this.start = performance.now();
+  }
+
+  timeRemaining() {
+    return Math.max(0, this.max - (performance.now() - this.start));
+  }
+}
