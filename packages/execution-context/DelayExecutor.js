@@ -10,9 +10,18 @@ export default class DelayExecutor {
     this.delay = parseInt(delay) || 0;
   }
 
-  execute(routine) {
-    return new Promise(resolve => {
-      setTimeout(() => resolve(routine()), this.delay);
+  execute(queue) {
+    return new Promise(resolveQueue => {
+      setTimeout(() => {
+        const task = queue.shift();
+        task.run();
+
+        if (queue.length > 0) {
+          return resolveQueue(Promise.resolve().then(() => this.execute(queue)));
+        }
+
+        resolveQueue();
+      }, this.delay);
     });
   }
 }
