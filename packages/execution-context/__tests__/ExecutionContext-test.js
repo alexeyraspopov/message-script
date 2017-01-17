@@ -52,37 +52,4 @@ describe('ExecutionContext', () => {
     await Promise.resolve(); // wait for the next tick
     expect(routineB).toHaveBeenCalled();
   });
-
-  it('should execute a set of tasks concurrently', async () => {
-    const context = new ExecutionContext(executor, 2);
-    const routineA = jest.fn();
-    const routineB = jest.fn();
-    const routineC = jest.fn();
-
-    context.execute(routineA);
-    context.execute(routineB);
-    context.execute(routineC);
-
-    await Promise.resolve(); // wait for the next tick
-    expect(routineA).toHaveBeenCalled();
-    expect(routineB).toHaveBeenCalled();
-    expect(routineC).not.toHaveBeenCalled();
-
-    await Promise.resolve(); // wait for the next tick
-    expect(routineC).toHaveBeenCalled();
-  });
-
-  it('should execute code by request in manual mode', async () => {
-    const context = new ExecutionContext(executor, 1, true);
-    const routine = jest.fn();
-
-    context.execute(routine);
-
-    await Promise.resolve(); // wait for the next tick
-    expect(routine).not.toHaveBeenCalled();
-
-    const result = await context.flush();
-    expect(result).toBe(true);
-    expect(routine).toHaveBeenCalled();
-  });
 });
