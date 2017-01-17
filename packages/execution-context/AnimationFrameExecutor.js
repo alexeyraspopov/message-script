@@ -3,9 +3,25 @@
  * https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
  */
 export default class AnimationFrameExecutor {
-  execute(routine) {
-    return new Promise(resolve => {
-      requestAnimationFrame(() => resolve(routine()));
+  constructor(targetFPS = 60) {
+    this.maxDeadline = Math.floor(1000 / targetFPS);
+  }
+
+  execute(queue) {
+    return new Promise(resolveQueue => {
+      const deadline = new Deadline(this.maxDeadline);
+      requestAnimationFrame(() => {
+        while (deadline.timeRemaining() > 0 && queue.length > 0) {
+          const task = queue.shift();
+          task.run();
+        }
+
+        if (queue.length > 0) {
+          return resolveQueue(this.execute(queue));
+        }
+
+        resolveQueue();
+      });
     });
   }
 }
