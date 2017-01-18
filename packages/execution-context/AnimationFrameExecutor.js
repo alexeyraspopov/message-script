@@ -10,9 +10,13 @@ export default class AnimationFrameExecutor {
     this.maxDeadline = Math.floor(1000 / targetFPS);
   }
 
+  /**
+   * @param {Array} queue — an array of routines to execute
+   */
   execute(queue) {
     return new Promise(resolveQueue => {
       const deadline = new Deadline(this.maxDeadline);
+
       requestAnimationFrame(() => {
         while (deadline.timeRemaining() > 0 && queue.length > 0) {
           const task = queue.shift();

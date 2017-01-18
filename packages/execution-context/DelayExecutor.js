@@ -10,6 +10,9 @@ export default class DelayExecutor {
     this.delay = parseInt(delay) || 0;
   }
 
+  /**
+   * @param {Array} queue — an array of routines to execute
+   */
   execute(queue) {
     return new Promise(resolveQueue => {
       setTimeout(() => {
