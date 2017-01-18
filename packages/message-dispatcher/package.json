@@ -14,6 +14,6 @@
     "rollup": "*"
   },
   "scripts": {
-    "prepublish": "rollup --format cjs --external execution-context index.js > message-dispatcher.js"
+    "prepublish": "rollup --format cjs --external execution-context --config ../../rollup.config.js index.js > message-dispatcher.js"
   }
 }

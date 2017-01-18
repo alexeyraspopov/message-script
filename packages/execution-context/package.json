@@ -11,6 +11,6 @@
     "rollup": "*"
   },
   "scripts": {
-    "prepublish": "rollup --format cjs index.js > execution-context.js"
+    "prepublish": "rollup --format cjs --config ../../rollup.config.js index.js > execution-context.js"
   }
 }
