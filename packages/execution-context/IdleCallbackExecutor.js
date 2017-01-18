@@ -3,10 +3,14 @@
  * https://developer.mozilla.org/en-US/docs/Web/API/window/requestIdleCallback
  */
 export default class IdleCallbackExecutor {
+  constructor(timeout) {
+    this.timeout = parseInt(timeout) || 1000;
+  }
+
   execute(queue) {
     return new Promise(resolveQueue => {
       requestIdleCallback(deadline => {
-        while (deadline.timeRemaining() > 0 && queue.length > 0) {
+        while ((deadline.timeRemaining() > 0 || deadline.didTimeout) && queue.length > 0) {
           const task = queue.shift();
           task.run();
         }
@@ -16,7 +20,7 @@ export default class IdleCallbackExecutor {
         }
 
         resolveQueue();
-      });
+      }, { timeout: this.timeout });
     });
   }
 }
