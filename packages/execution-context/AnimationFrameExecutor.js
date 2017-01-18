@@ -3,6 +3,9 @@
  * https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
  */
 export default class AnimationFrameExecutor {
+  /**
+   * @param {Number} targetFPS — a preferable frame rate (default to 60)
+   */
   constructor(targetFPS = 60) {
     this.maxDeadline = Math.floor(1000 / targetFPS);
   }
