@@ -15,7 +15,7 @@ export default class UniformEnvironment {
   }
 
   post(message) {
-    for (const child of this.children) {
+    for (const child of this.children.values()) {
       child.send(message);
     }
   }
