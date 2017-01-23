@@ -11,6 +11,7 @@ This project includes a several separate packages that work together in favor to
  * [`actor-system`](packages/actor-system)
  * [`message-dispatcher`](packages/message-dispatcher)
  * [`execution-context`](packages/execution-context)
+ * [`uniform-environment`](packages/uniform-environment)
 
 ## Docs & Examples
 
