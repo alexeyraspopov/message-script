@@ -1,17 +1,8 @@
 export default class UniformEnvironment {
-  constructor(children) {
+  constructor(children, routine) {
     this.children = children;
+    this.routine = routine;
     this.processes = new Map();
-    this.id = 0;
-  }
-
-  spawn(routine) {
-    const address = `ID${this.id++}`;
-
-    this.processes.set(address, routine);
-    setTimeout(routine, 0, this);
-
-    return address;
   }
 
   post(message) {
