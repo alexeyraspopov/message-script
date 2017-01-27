@@ -28,7 +28,6 @@ import {
   AnimationFrameExecutor,
   DelayExecutor,
   IdleCallbackExecutor,
-  ImmediateExecutor,
-  NextTickExecutor
+  ImmediateExecutor
 } from 'execution-context';
 ```
