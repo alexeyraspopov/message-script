@@ -9,13 +9,9 @@
 export default class ExecutionContext {
   /**
    * @param {Executor} executor — an instance that handles code running
-   * @param {Number} concurrent — number of routines that can be executed at once
-   * @param {Boolean} manual — set to `true` if manual queue execution needed
    */
-  constructor(executor, concurrent = 1, manual = false) {
+  constructor(executor) {
     this.executor = executor;
-    this.concurrent = concurrent;
-    this.manual = manual;
     this.queue = [];
     this.current = Promise.resolve();
   }
@@ -26,11 +22,9 @@ export default class ExecutionContext {
    */
   execute(routine) {
     return new Promise((resolve, reject) => {
-      this.queue.push({ routine, resolve, reject });
+      this.queue.push(new Task(routine, resolve, reject));
 
-      if (!this.manual && this.queue.length === 1) {
-        this.flush();
-      }
+      if (this.queue.length === 1) this.flush();
     });
   }
 
@@ -39,26 +33,24 @@ export default class ExecutionContext {
    */
   flush() {
     return this.current.then(() => {
-      const tasks = this.queue.splice(0, this.concurrent);
-
-      if (tasks.length > 0) {
-        this.current = this.executor.execute(batchTasks(tasks));
-        return this.queue.length === 0 || this.flush();
-      }
-
-      return false;
+      this.current = this.executor.execute(this.queue);
+      this.queue = [];
     });
   }
 }
 
-function batchTasks(tasks) {
-  return function batch() {
-    for (var task of tasks) {
-      try {
-        task.resolve(task.routine());
-      } catch (error) {
-        task.reject(error);
-      }
+class Task {
+  constructor(routine, resolve, reject) {
+    this.routine = routine;
+    this.resolve = resolve;
+    this.reject = reject;
+  }
+
+  run() {
+    try {
+      this.resolve(this.routine());
+    } catch (error) {
+      this.reject(error);
     }
-  };
+  }
 }
