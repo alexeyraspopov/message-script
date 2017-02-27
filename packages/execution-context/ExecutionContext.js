@@ -18,11 +18,12 @@ export default class ExecutionContext {
 
   /**
    * @param {Function} routine — arbitrary code to execute
+   * @param {CancelToken} token — a cancellation object for the routine
    * @return {Promise} — async result of executed routine
    */
-  execute(routine) {
+  execute(routine, token) {
     return new Promise((resolve, reject) => {
-      this.queue.push(new Task(routine, resolve, reject));
+      this.queue.push(new Task(routine, resolve, reject, token));
 
       if (this.queue.length === 1) this.flush();
     });
@@ -40,13 +41,18 @@ export default class ExecutionContext {
 }
 
 class Task {
-  constructor(routine, resolve, reject) {
+  constructor(routine, resolve, reject, token) {
     this.routine = routine;
     this.resolve = resolve;
     this.reject = reject;
+    this.token = token;
   }
 
   run() {
+    if (this.token && this.token.isCancelled) {
+      return this.reject();
+    }
+
     try {
       this.resolve(this.routine());
     } catch (error) {

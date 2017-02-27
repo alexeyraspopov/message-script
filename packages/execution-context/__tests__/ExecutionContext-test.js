@@ -1,5 +1,6 @@
 import ExecutionContext from '../ExecutionContext';
 import ImmediateExecutor from '../ImmediateExecutor';
+import CancelToken from '../CancelToken';
 
 describe('ExecutionContext', () => {
   const executor = new ImmediateExecutor();
@@ -51,5 +52,16 @@ describe('ExecutionContext', () => {
 
     await Promise.resolve(); // wait for the next tick
     expect(routineB).toHaveBeenCalled();
+  });
+
+  it('should cancel a routine execution', async () => {
+    const token = new CancelToken();
+    const routine = jest.fn();
+
+    context.execute(routine, token);
+    token.cancel();
+
+    await Promise.resolve(); // wait for the next tick
+    expect(routine).not.toHaveBeenCalled();
   });
 });
