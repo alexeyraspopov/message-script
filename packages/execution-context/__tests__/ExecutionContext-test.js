@@ -1,6 +1,6 @@
-import ExecutionContext from '../ExecutionContext';
-import ImmediateExecutor from '../ImmediateExecutor';
-import CancelToken from '../CancelToken';
+import ExecutionContext from '../modules/ExecutionContext';
+import ImmediateExecutor from '../modules/ImmediateExecutor';
+import CancelToken from '../modules/CancelToken';
 
 describe('ExecutionContext', () => {
   const executor = new ImmediateExecutor();

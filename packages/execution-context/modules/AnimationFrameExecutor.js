@@ -4,7 +4,7 @@
  */
 export default class AnimationFrameExecutor {
   /**
-   * @param {Number} targetFPS — a preferable frame rate (default to 60)
+   * @param {Number} targetFPS — a preferable frame rate
    */
   constructor(targetFPS = 60) {
     this.maxDeadline = Math.floor(1000 / targetFPS);
