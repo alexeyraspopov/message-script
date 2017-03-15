@@ -1,0 +1,10 @@
+{
+  "mode": "file",
+  "target": "ES6",
+  "includeDeclarations": true,
+  "excludeExternals": true,
+  "name": "MessageScript",
+  "readme": "README.md",
+  "theme": "node_modules/typedoc-dash-theme/bin",
+  "out": "__docs/"
+}
