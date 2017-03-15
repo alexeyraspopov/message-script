@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "main": "message-dispatcher.js",
   "jsnext:main": "index.js",
+  "types": "typings/message-dispatcher.d.ts",
   "license": "MIT",
   "author": "Alexey Raspopov",
   "repository": "alexeyraspopov/message-script",
