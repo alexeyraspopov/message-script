@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "main": "execution-context.js",
   "jsnext:main": "index.js",
+  "types": "typings/execution-context.d.ts",
   "license": "MIT",
   "author": "Alexey Raspopov",
   "repository": "alexeyraspopov/message-script",

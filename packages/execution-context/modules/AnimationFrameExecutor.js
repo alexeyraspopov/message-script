@@ -1,18 +1,8 @@
-/**
- * Schedules a routine execution using `requestAnimationFrame`
- * https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
- */
 export default class AnimationFrameExecutor {
-  /**
-   * @param {Number} targetFPS — a preferable frame rate
-   */
   constructor(targetFPS = 60) {
     this.maxDeadline = Math.floor(1000 / targetFPS);
   }
 
-  /**
-   * @param {Array} queue — an array of routines to execute
-   */
   execute(queue) {
     return new Promise(resolveQueue => {
       const deadline = new Deadline(this.maxDeadline);
