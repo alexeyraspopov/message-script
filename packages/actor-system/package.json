@@ -1,6 +1,7 @@
 {
   "name": "actor-system",
   "version": "2.0.0",
+  "types": "typings/actor-system.d.ts",
   "license": "MIT",
   "repository": "alexeyraspopov/message-script",
   "private": true
