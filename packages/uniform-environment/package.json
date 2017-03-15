@@ -1,6 +1,7 @@
 {
   "name": "uniform-environment",
   "version": "0.0.0",
+  "types": "typings/uniform-environment.d.ts",
   "license": "MIT",
   "repository": "alexeyraspopov/message-script",
   "private": true
