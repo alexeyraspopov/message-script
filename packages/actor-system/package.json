@@ -4,5 +4,8 @@
   "types": "typings/actor-system.d.ts",
   "license": "MIT",
   "repository": "alexeyraspopov/message-script",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "message-dispatcher": "*"
+  }
 }
