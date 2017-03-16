@@ -1,14 +1,16 @@
+import { Mailbox } from 'message-dispatcher';
+
 export default class Actor {
-  constructor(system, mailbox) {
+  static getMailboxType() {
+    return Mailbox;
+  }
+
+  constructor(system) {
     this.system = system;
-    this.mailbox = mailbox;
-    this.subscription = mailbox.register(({ message, sender }) => {
-      this.receive(message, sender);
-    });
   }
 
   receive() {
-    throw new Error('Not implemented');
+    throw new Error('Actor::receive should be implemented by a child class');
   }
 
   dispose() {
