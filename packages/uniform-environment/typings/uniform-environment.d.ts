@@ -5,7 +5,8 @@ declare module UniformEnvironment {
   }
 
   export class UniformEnvironment {
-    constructor(children: Array<Gateway>, routine: Function);
+    static create(children: Array<Gateway>, receiver: Function);
+    constructor(children: Array<Gateway>, receiver: Function);
     post(message: any): void;
   }
 
