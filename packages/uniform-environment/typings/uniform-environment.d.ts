@@ -4,10 +4,14 @@ declare module UniformEnvironment {
     listen(handler: Function): void;
   }
 
+  /**
+   * An instance that provides a glue between different distributed
+   * environments and allows message exchange with location transparency
+   */
   export class UniformEnvironment {
     static create(children: Array<Gateway>, receiver: Function);
     constructor(children: Array<Gateway>, receiver: Function);
-    post(message: any): void;
+    broadcast(message: any): void;
   }
 
   export class ClusterGateway implements Gateway {

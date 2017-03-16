@@ -16,7 +16,7 @@ export default class UniformEnvironment {
     this.routine = routine;
   }
 
-  post(message) {
+  broadcast(message) {
     for (const child of this.children) {
       child.send(message);
     }
