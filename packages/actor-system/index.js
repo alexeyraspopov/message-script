@@ -1,5 +1,3 @@
-import ActorSystem from './modules/ActorSystem';
-import ActorRef from './modules/ActorRef';
-import Actor from './modules/Actor';
-
-export { ActorSystem, ActorRef, Actor };
+export { default as ActorSystem } from './modules/ActorSystem';
+export { default as ActorRef } from './modules/ActorRef';
+export { default as Actor } from './modules/Actor';

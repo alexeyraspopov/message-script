@@ -1,9 +1,6 @@
-import ExecutionContext from './modules/ExecutionContext';
-import AnimationFrameExecutor from './modules/AnimationFrameExecutor';
-import IdleCallbackExecutor from './modules/IdleCallbackExecutor';
-import ImmediateExecutor from './modules/ImmediateExecutor';
-import DelayExecutor from './modules/DelayExecutor';
-import CancelToken from './modules/CancelToken';
-
-export { ExecutionContext, AnimationFrameExecutor, IdleCallbackExecutor,
-         ImmediateExecutor, DelayExecutor, CancelToken };
+export { default as ExecutionContext } from './modules/ExecutionContext';
+export { default as AnimationFrameExecutor } from './modules/AnimationFrameExecutor';
+export { default as IdleCallbackExecutor } from './modules/IdleCallbackExecutor';
+export { default as ImmediateExecutor } from './modules/ImmediateExecutor';
+export { default as DelayExecutor } from './modules/DelayExecutor';
+export { default as CancelToken } from './modules/CancelToken';

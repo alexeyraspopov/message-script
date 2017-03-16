@@ -1,6 +1,4 @@
-import UniformEnvironment from './modules/UniformEnvironment';
-import WorkerGateway from './modules/WorkerGateway';
-import ClusterGateway from './modules/ClusterGateway';
-import SocketGateway from './modules/SocketGateway';
-
-export { UniformEnvironment, WorkerGateway, ClusterGateway, SocketGateway };
+export { default as UniformEnvironment } from './modules/UniformEnvironment';
+export { default as WorkerGateway } from './modules/WorkerGateway';
+export { default as ClusterGateway } from './modules/ClusterGateway';
+export { default as SocketGateway } from './modules/SocketGateway';
