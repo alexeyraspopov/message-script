@@ -21,7 +21,7 @@ declare module MessageDispatcher {
 
   export class Mailbox {
     constructor(context: ExecutionContext.ExecutionContext);
-    enqueue(envelope: Envelope): void;
+    enqueue(envelope: Envelope | Message<any>): void;
     register(receiver: Function): Subscription;
   }
 
