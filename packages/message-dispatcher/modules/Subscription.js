@@ -1,7 +1,7 @@
 export default class Subscription {
   constructor(receivers, receiver) {
     this.receivers = receivers;
-    this.receiver = this.receiver;
+    this.receiver = receiver;
   }
 
   dispose() {
