@@ -5,7 +5,7 @@
 import { UniformEnvironment, WorkerGateway } from 'uniform-environment';
 
 const worker = new Worker('worker.js');
-const environment = UniformEnvironment.create([
+const environment = UniformEnvironment.from([
   new WorkerGateway(worker)
 ], receive);
 
@@ -18,7 +18,7 @@ function receive(message, sender) {
 // worker.js
 import { UniformEnvironment, WorkerGateway } from 'uniform-environment';
 
-const environment = UniformEnvironment.create([
+const environment = UniformEnvironment.from([
   new WorkerGateway(self)
 ], receive);
 

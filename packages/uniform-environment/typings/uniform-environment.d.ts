@@ -9,7 +9,7 @@ declare module UniformEnvironment {
    * environments and allows message exchange with location transparency
    */
   export class UniformEnvironment {
-    static create(children: Array<Gateway>, receiver: Function);
+    static from(children: Array<Gateway>, receiver: Function);
     constructor(children: Array<Gateway>, receiver: Function);
     broadcast(message: any): void;
   }

@@ -1,5 +1,5 @@
 export default class UniformEnvironment {
-  static create(children, receiver) {
+  static from(children, receiver) {
     const environment = new UniformEnvironment(children, receiver);
 
     const handler = (event) => {
