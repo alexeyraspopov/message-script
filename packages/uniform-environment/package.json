@@ -1,8 +1,17 @@
 {
   "name": "uniform-environment",
+  "description": "Glue between different distributed environments which allows message exchange with location transparency",
   "version": "0.0.0",
+  "main": "uniform-environment.js",
+  "jsnext:main": "index.js",
   "types": "typings/uniform-environment.d.ts",
   "license": "MIT",
+  "author": "Alexey Raspopov",
   "repository": "alexeyraspopov/message-script",
-  "private": true
+  "devDependencies": {
+    "rollup": "*"
+  },
+  "scripts": {
+    "prepublish": "rollup --format cjs --config ../../rollup.config.js index.js > uniform-environment.js"
+  }
 }
