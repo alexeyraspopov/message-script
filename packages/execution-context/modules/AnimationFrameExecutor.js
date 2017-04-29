@@ -5,9 +5,9 @@ export default class AnimationFrameExecutor {
 
   execute(queue) {
     return new Promise(resolveQueue => {
-      const deadline = new Deadline(this.maxDeadline);
+      requestAnimationFrame(timestamp => {
+        const deadline = new Deadline(this.maxDeadline, timestamp);
 
-      requestAnimationFrame(() => {
         while (deadline.timeRemaining() > 0 && queue.length > 0) {
           const task = queue.shift();
           task.run();
@@ -24,9 +24,9 @@ export default class AnimationFrameExecutor {
 }
 
 class Deadline {
-  constructor(max) {
+  constructor(max, start) {
     this.max = max;
-    this.start = performance.now();
+    this.start = start;
   }
 
   timeRemaining() {
